@@ -35,7 +35,7 @@ def e_attack(text, alphalist):
         i += 1
     return 'ok'
 
-c = tp1.textToCesar("bonjour a toutes et a tous, soyez les bienvenues aaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 3, alphalist)
+c = tp1.textToCesar("bonjour à toutes et a tous, soyez les bienvenues aaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 3, alphalist)
 # e_attack(c, tp1.alphalist)
 
 
