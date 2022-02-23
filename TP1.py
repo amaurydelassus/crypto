@@ -12,20 +12,15 @@ def clean(text):
     return text
 
 
-# print(clean("Coàc ou"))
-
-
 def occurenceOfLetter(text, alphalist):
     tab = {}
+    clean(text)
     for a in alphalist:
         tab[a] = 0
     for a in text:
         if a in alphalist:
             tab[a] = tab[a] + 1
     return tab
-
-
-# print(occurenceOfLetter(clean("Coàcou"), alphalist))
 
 
 def rateOfLetter(text, alphalist):
@@ -35,17 +30,11 @@ def rateOfLetter(text, alphalist):
     return tab
 
 
-# print(rateOfLetter(clean("Coàcou"), alphalist))
-
-
 def openFile(filename):
     f = open(filename, mode='r', encoding='utf-8')
     file = f.read()
     f.close()
     return file
-
-
-# print(openFile("demofile"))
 
 
 def writeFile(filename, text):
@@ -55,7 +44,7 @@ def writeFile(filename, text):
     return "OK"
 
 
-# print(writeFile("demofile", "Bonjour"))
+# print(writeFile("demo.txt", "Bonjour"))
 
 
 def charToCesar(char, key, alphalist):
@@ -112,6 +101,7 @@ def fileToCesar(filename, key, alphalist):
 def textToVig(text, key, alphalist):
     newStr = ""
     i = 0
+    text = clean(text)
     for char in text:
         newKey = key[i % len(key)]
         newStr += charToCesar(char, newKey, alphalist)
@@ -144,8 +134,8 @@ def fileToVig(filename, key, alphalist):
     writeFile(new_file_name, text)
     return "OK"
 
-
-# print(fileToVig("dekuyexnus", key, alphalist))
+key = [5,6,3,9,8,7,8,9,8,9,8,6,7,8]
+# print(fileToVig("demo.txt", key, alphalist))
 
 def vigToFile(filename, key, alphalist):
     file = openFile(filename)
@@ -154,4 +144,4 @@ def vigToFile(filename, key, alphalist):
     writeFile(new_file_name, text)
     return "OK"
 
-# print(vigToFile("demofile_vcode.txt", key, alphalist))
+# print(vigToFile("demo.txt_vcode.txt", key, alphalist))
